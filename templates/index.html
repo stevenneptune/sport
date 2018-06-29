@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<a>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>fansLearn</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+{% load static %}
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all" >
+
+<script src="/static/js/jquery.min.js"></script>
+<!---start-login-script--->
+<script src="/static/js/login.js"></script>
+<!---//End-login-script--->
+<!-----768px-menu----->
+<link type="text/css" rel="stylesheet" href="/static/css/jquery.mmenu.all.css" />
+
+<script type="text/javascript" src="/static/js/jquery.mmenu.js"></script>
+<script type="text/javascript">
+//	The menu on the left
+$(function() {
+	$('nav#menu-left').mmenu();
+});
+</script>
+<!-----//768px-menu----->
+</head>
+<body>
+	<div class="content">
+	<!------start-768px-menu---->
+			<div id="page">
+					<div id="header">
+						<a class="navicon" href="#menu-left"> </a>
+					</div>
+					<nav id="menu-left">
+						<ul>
+							<li class="active"><a href="{% url 'home' %}">主页</a></li>
+							<li><a href="{% url 'players' %}">球员</a></li>
+							<li><a href="{% url 'team' %}">球队</a></li>
+							<li><a href="{% url 'match' %}">赛事</a></li>
+							<div class="clear"> </div>
+						</ul>
+					</nav>
+			</div>
+		<!------end-768px-menu---->
+			<!---start-header---->
+			<div class="header">
+		   <!---start-wrap---->
+				<div class="wrap">
+				<div class="header-left">
+					<!--div class="logo"-->
+						<!--a href="index.html"><img src="images/logo.jpg"/></a-->
+					<!--/div-->
+				</div>
+				<div class="header-right">
+					<div class="top-nav">
+					<ul>
+						<li class="active"><a href="{% url 'home' %}">主页</a></li>
+						<li><a href="{% url 'players' %}">球员</a></li>
+						<li><a href="{% url 'team' %}">球队</a></li>
+						<li><a href="{% url 'match' %}">赛事</a></li>
+					</ul>
+				</div>
+				
+				<div class="sign-ligin-btns">
+					<ul>
+						
+						<li id="loginContainer"><a class="login" id="loginButton" href="#"><span>登录</span></a>
+							 <div class="clear"> </div>
+				                <div id="loginBox">                
+				                    <form id="loginForm">
+				                        <fieldset id="body">
+				                            <fieldset>
+				                                <label for="email">邮箱</label>
+				                                <input type="text" name="email" id="email" />
+				                            </fieldset>
+				                            <fieldset>
+				                                <label for="password">密码</label>
+				                                <input type="password" name="password" id="password" />
+				                            </fieldset>
+				                            <label class="remeber" for="checkbox"><input type="checkbox" id="checkbox" />记住我</label>
+				                            <input type="submit" id="login" value="登录" />
+				                        </fieldset>
+				                        <span><a href="#">忘记密码？</a></span>
+				                    </form>
+				                </div>
+				            <!-- Login Ends Here -->
+						</li>
+						<li id="signupContainer"><a class="signup" id="signupButton" href="#"><span>注册</span></a>
+							 <div class="clear"> </div>
+				                <div id="signupBox">                
+				                    <form id="signupForm">
+				                        <fieldset id="signupbody">
+				                            <fieldset>
+				                                <label for="email">邮箱<span>*</span></label>
+				                                <input type="text" name="email" id="signupemail" />
+				                            </fieldset>
+				                            <fieldset>
+				                                <label for="password">密码<span>*</span></label>
+				                                <input type="password" name="password" id="signuppassword" />
+				                            </fieldset>
+				                             <fieldset>
+				                                <label for="password">确认<span>*</span></label>
+				                                <input type="password" name="password" id="signuppassword1" />
+				                            </fieldset>
+				                            <input type="submit" id="signup" value="现在注册" />
+				                        </fieldset>
+				                    </form>
+				                </div>
+				            <!-- Login Ends Here -->
+						</li>
+						<div class="clear"> </div>
+					</ul>
+				</div>
+				<div class="clear"> </div>
+				</div>
+				<div class="clear"> </div>
+			</div>
+			</div>
+			<div class="main">
+				<div class="wrap">
+				<div class="main_left">
+					<h2>球迷学习</h2>
+					<p>大赛将至，如何成为一个合格的伪球迷在饭桌上谈笑风生？参与本站学习，为您量身定制学习计划。</p>		
+					<div class="buttons">
+						<div class="sign_up">
+							<a href="#">学习树</a>
+						</div>
+						<div class="learn">
+							<a href="{% url 'details' %}" class="arrow_btn">了解更多</a>
+						</div>
+							<div class="clear"> </div>
+					</div>
+				</div>
+			<div class="main_right">
+						<span> </span>
+			</div>
+			<div class="clear"> </div>
+			<!---//End-header---->
+			</div>
+		</div>
+	</div>
+		
+		<div class="footer">
+   	    <div class="wrap">
+   	    	<div class="footer-left">
+				<div class="copy">
+			       <p>Copyright &copy; 2018.XJTU-我看长 All rights reserved.</p>
+		        </div>
+			</div>
+		   <div class="clear"> </div>
+	    </div>
+
+   </div>
+
+</body>
+</html>

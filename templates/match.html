@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>team</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="/static/js/jquery.min.js"></script>
+<!---start-login-script--->
+		<script src="/static/js/login.js"></script>
+		<!---//End-login-script--->
+		<!-----768px-menu----->
+		<link type="text/css" rel="stylesheet" href="/static/css/jquery.mmenu.all.css" />
+		<script type="text/javascript" src="/static/js/jquery.mmenu.js"></script>
+			<script type="text/javascript">
+				//	The menu on the left
+				$(function() {
+					$('nav#menu-left').mmenu();
+				});
+		</script>
+		<!-----//768px-menu----->
+</head>
+<body>
+		<div class="content">
+	<!------start-768px-menu---->
+			<div id="page">
+					<div id="header">
+						<a class="navicon" href="#menu-left"> </a>
+					</div>
+					<nav id="menu-left">
+						<ul>
+							<li><a href="{% url 'home' %}">主页</a></li>
+							<li><a href="{% url 'players' %}">球员</a></li>
+							<li ><a href="{% url 'team' %}">球队</a></li>
+							<li class="active"><a href="{% url 'match'}">赛事</a></li>
+							<div class="clear"> </div>
+						</ul>
+					</nav>
+			</div>
+		<!------end-768px-menu---->
+			<!---start-header---->
+			<div class="header">
+		   <!---start-wrap---->
+				<div class="wrap">
+				<div class="header-left">
+					
+				</div>
+				<div class="header-right">
+					<div class="top-nav">
+					<ul>
+						<li><a href="{% url 'home' %}">主页</a></li>
+						<li><a href="{% url 'players' %}">球员</a></li>
+						<li><a href="{% url 'team' %}">球队</a></li>
+						<li class="active"><a href="{% url 'match' %}">赛事</a></li>
+					</ul>
+				</div>
+				
+				<div class="sign-ligin-btns">
+					<ul>
+						
+						<li id="loginContainer"><a class="login" id="loginButton" href="#"><span>登录</span></a>
+							 <div class="clear"> </div>
+				                <div id="loginBox">                
+				                    <form id="loginForm">
+				                        <fieldset id="body">
+				                            <fieldset>
+				                                <label for="email">邮箱</label>
+				                                <input type="text" name="email" id="email" />
+				                            </fieldset>
+				                            <fieldset>
+				                                <label for="password">密码</label>
+				                                <input type="password" name="password" id="password" />
+				                            </fieldset>
+				                            <label class="remeber" for="checkbox"><input type="checkbox" id="checkbox" />记住我</label>
+				                            <input type="submit" id="login" value="登录" />
+				                        </fieldset>
+				                        <span><a href="#">忘记密码？</a></span>
+				                    </form>
+				                </div>
+				            <!-- Login Ends Here -->
+						</li>
+						<li id="signupContainer"><a class="signup" id="signupButton" href="#"><span>注册</span></a>
+							 <div class="clear"> </div>
+				                <div id="signupBox">                
+				                    <form id="signupForm">
+				                        <fieldset id="signupbody">
+				                            <fieldset>
+				                                <label for="email">邮箱<span>*</span></label>
+				                                <input type="text" name="email" id="signupemail" />
+				                            </fieldset>
+				                            <fieldset>
+				                                <label for="password">密码<span>*</span></label>
+				                                <input type="password" name="password" id="signuppassword" />
+				                            </fieldset>
+				                             <fieldset>
+				                                <label for="password">确认<span>*</span></label>
+				                                <input type="password" name="password" id="signuppassword1" />
+				                            </fieldset>
+				                            <input type="submit" id="signup" value="现在注册" />
+				                        </fieldset>
+				                    </form>
+				                </div>
+				            <!-- Login Ends Here -->
+						</li>
+						<div class="clear"> </div>
+					</ul>
+				</div>
+				<div class="clear"> </div>
+				</div>
+				<div class="clear"> </div>
+			</div>
+			</div>
+			<div class="wrap">
+				<div class="section-title">
+	                   <h3>比赛</h3>
+	            </div><!--section-title-->
+			</div>
+		</div>
+<div class="main_bg">
+	 <p class="about-title">今日比赛预测</p>
+<br class="wrap" >
+ <div class="blog" align="center">
+        <input type="text" name="tname" id="team1" placeholder="球队1">
+        <br/><br/>
+        <input type="text" name="tname" id="team2" placeholder="球队2">
+        <br/><br/>
+        <button type="button" id="prediction">预测</button>
+        <br/><br/>
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h3 class="panel-title">预测结果</h3>
+            </div>
+            <div class="panel-body">
+                <span id="winner"></span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- start footer -->
+<div class="footer">
+   	    <div class="wrap">
+   	    	<div class="footer-left">
+				<div class="copy">
+			       <p>Copyright &copy; 2018.XJTU-我看长 All rights reserved.</p>
+		        </div>
+			</div>
+			<div class="clear"> </div>
+	    </div>
+
+   </div>
+
+<script type="text/javascript">
+
+    //var predictionURL = 'http://39.104.62.218:5000/predict/Russia/France';
+    $(function () {
+        $('#prediction').click(function () {
+            var team1 = document.getElementById("team1").value;
+            var team2 = document.getElementById("team2").value;
+            var predictionURL = 'http://39.104.62.218:5000/'+'predict/'+team1+'/'+team2;
+            $.ajax({
+
+                url:predictionURL,
+                type:'GET',
+                dataType:'json',
+                timeout:20000,
+                error:function(){
+                    alert('Failed to communicate to the server. Try again!')
+                 },
+                success:function(ajdata){
+                    var result = ajdata;
+                    $('#winner').text(result.prediction);
+
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>
