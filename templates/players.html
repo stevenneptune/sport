@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 <head>
 <title>players</title>
@@ -193,21 +193,10 @@
 								 <div class="clear"> </div>
 						</div>
 			 		</div-->
-        <table border="1">
-        <thead>
-            <th>year</th>
-            <th>place</th>
-        </thead>
-        <tbody>
-            {% for line in data %}
-            <tr>
-                <td>{{ line.year }}</td>
-                <td>{{ line.city }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-		</div>        
+        <div id="shooter" align="center">
+
+        </div>
+
 	</div>
 	<div class="footer">
    	    <div class="wrap">
@@ -221,6 +210,30 @@
 	    </div>
 
    </div>
-
+   <script type="text/javascript">
+		$(function () {
+        $(document).ready(function () {
+            var predictionURL = 'https://api.qa.fifa.com/api/v1/topseasonplayerstatistics/season/254645/topscorers?language=en-GB'
+            $.ajax({
+                url:predictionURL,
+                type:'GET',
+                dataType:'json',
+                timeout:20000,
+                error:function(){
+                    alert('Failed to communicate to the server. Try again!')
+                 },
+                success:function(ajdata){
+                    var result = ajdata;
+                    var str = "";
+                    var length = result.PlayerStatsList.length;
+                    for (var i = 0; i<length; i++) {
+                        str+="<p>"+ajdata.PlayerStatsList[i].PlayerInfo.PlayerName[0].Description+"&nbsp&nbsp&nbsp"+ajdata.PlayerStatsList[i].PlayerInfo.TeamName[0].Description+"&nbsp&nbsp&nbsp"+ajdata.PlayerStatsList[i].GoalsScored+"</p>";
+                    }
+                    $("#shooter").append(str);
+                }
+            })
+        })
+    })
+	</script>
 </body>
 </html>
